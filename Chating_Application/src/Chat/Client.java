@@ -51,7 +51,7 @@ public class Client {
 				}
 			} catch (Exception e)
 			{
-				e.printStackTrace();
+				System.out.println("Connection Closed...");
 			}
 			
 		};
@@ -80,10 +80,13 @@ public class Client {
 					}
 					
 				}
+				
+				System.out.println("Connection Closed...");
 			} catch (Exception e)
 			{
 				e.printStackTrace();
 			}	
+			
 		};
 		
 		new Thread(r2).start();
