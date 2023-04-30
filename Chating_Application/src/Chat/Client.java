@@ -1,6 +1,6 @@
 package Chat;
 
-import java.net.Socket;
+import java.net.*;
 import java.io.*;
 
 public class Client {
@@ -15,7 +15,7 @@ public class Client {
 		try 
 		{
 			System.out.println("Sending Request To Sever...");
-			socket = new Socket("localhost",7777); 
+			socket = new Socket("localhost",8000); 
 			System.out.println("Connection Done...");
 			
 			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -26,9 +26,10 @@ public class Client {
 		}
 		catch (Exception e) 
 		{
-			e.printStackTrace();
+			
 		}
 	}
+	
 	
 	public void startReading()
 	{
@@ -81,6 +82,8 @@ public class Client {
 		
 		new Thread(r2).start();
 	}
+	
+	
 	public static void main(String[] args) 
 	{
 		System.out.println("This is Client...");
