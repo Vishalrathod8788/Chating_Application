@@ -83,13 +83,6 @@ public class Server
 						out.println(content);
 						out.flush();
 						
-						if(content.equals("Exit"))
-						{
-							System.out.println("Server Terminated The Chat");
-							break;
-						}
-						
-						System.out.println("Server : " + content);
 					}
 				} catch (Exception e)
 				{

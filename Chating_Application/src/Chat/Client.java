@@ -59,7 +59,27 @@ public class Client {
 	
 	public void startWriting()
 	{
+		Runnable r2 = () -> {
+			System.out.println("Writing Started...");
+			
+			try 
+			{
+				while(true)
+				{
+					BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
+					
+					String content = br1.readLine();
+					out.println(content);
+					out.flush();
+					
+				}
+			} catch (Exception e)
+			{
+				e.printStackTrace();
+			}	
+		};
 		
+		new Thread(r2).start();
 	}
 	public static void main(String[] args) 
 	{
