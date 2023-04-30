@@ -43,8 +43,8 @@ public class Server
 				System.out.println("Reading Started...");
 				try 
 				{
-					while(true)
-					{
+					while(true && !socket.isClosed())
+					{ 
 						String msg = br.readLine();
 						
 						if(msg.equals("Exit"))

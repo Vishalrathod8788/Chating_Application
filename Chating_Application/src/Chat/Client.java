@@ -65,13 +65,19 @@ public class Client {
 			
 			try 
 			{
-				while(true)
+				while(true && !socket.isClosed())
 				{
 					BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
 					
 					String content = br1.readLine();
 					out.println(content);
 					out.flush();
+					
+					if(content.equals("Exit"))
+					{
+						socket.close();
+						break;
+					}
 					
 				}
 			} catch (Exception e)
