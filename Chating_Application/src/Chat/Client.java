@@ -15,8 +15,8 @@ public class Client {
 		try 
 		{
 			System.out.println("Sending Request To Sever...");
-			socket = new Socket("127.0.0.1",7777); 
-			System.out.println("Waiting...");
+			socket = new Socket("localhost",7777); 
+			System.out.println("Connection Done...");
 			
 			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			out = new PrintWriter(socket.getOutputStream());
@@ -85,6 +85,7 @@ public class Client {
 	{
 		System.out.println("This is Client...");
 		new Client();
+		
 	}
 
 }
