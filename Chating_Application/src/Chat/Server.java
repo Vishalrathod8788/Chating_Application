@@ -50,6 +50,7 @@ public class Server
 						if(msg.equals("Exit"))
 						{
 							System.out.println("Client Terminated The Chat");
+							socket.close();
 							break;
 						}
 						
@@ -57,7 +58,7 @@ public class Server
 					}
 				} catch (Exception e)
 				{
-					e.printStackTrace();
+					System.out.println("Connection Closed...");
 				}
 				
 			};
@@ -83,10 +84,18 @@ public class Server
 						out.println(content);
 						out.flush();
 						
+						if(content.equals("Exit"))
+						{
+							socket.close();
+							break;
+						}
+						
 					}
+					
+					System.out.println("Connection Closed...");
 				} catch (Exception e)
 				{
-					e.printStackTrace();
+					System.out.println("Connection Closed...");
 				}	
 			};
 			
