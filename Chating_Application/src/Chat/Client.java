@@ -17,13 +17,50 @@ public class Client {
 			System.out.println("Sending Request To Sever...");
 			socket = new Socket("127.0.0.1",7777); 
 			System.out.println("Waiting...");
+			
+			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			out = new PrintWriter(socket.getOutputStream());
+			
+			startReading();
+			startWriting();
 		}
 		catch (Exception e) 
 		{
-		
+			e.printStackTrace();
 		}
 	}
-
+	
+	public void startReading()
+	{
+		Runnable r1 = () -> {
+			System.out.println("Reading Started...");
+			try 
+			{
+				while(true)
+				{
+					String msg = br.readLine();
+					
+					if(msg.equals("Exit"))
+					{
+						System.out.println("Server Terminated The Chat");
+						break;
+					}
+					
+					System.out.println("Server : " + msg);
+				}
+			} catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+			
+		};
+		new Thread(r1).start();
+	}
+	
+	public void startWriting()
+	{
+		
+	}
 	public static void main(String[] args) 
 	{
 		System.out.println("This is Client...");
